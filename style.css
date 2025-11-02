@@ -138,17 +138,30 @@ nav a {
   width: 90%;
   max-width: 800px;
   margin: 40px auto 0 auto;
-  text-align: center;
-  padding: 30px;
-  box-sizing: border-box;
   
-  /* Use the new glass style */
-  background: rgba(10, 10, 10, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  /* Make it a "containing" block */
+  position: relative; 
+  overflow: hidden; /* Hide blob overflow */
+
+  /* Old styles */
+  background: rgba(20, 20, 20, 0.4);
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #333;
+}.home-right {
+  width: 90%;
+  max-width: 800px;
+  margin: 40px auto 0 auto;
+  
+  /* Make it a "containing" block */
+  position: relative; 
+  overflow: hidden; /* Hide blob overflow */
+
+  /* Old styles */
+  background: rgba(20, 20, 20, 0.4);
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #333;
 }
 
 /* ---------------------------------
@@ -393,37 +406,46 @@ footer {
 }
 
 /* ---------------------------------
-   ANIMATED GLOW EFFECT
-   (No changes, this is still great)
+   ANIMATED GRADIENT TEXT (OPTION 1)
 ---------------------------------- */
-.animated-glow {
+.animated-gradient {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #fff;
-  animation: glow 1.5s ease-in-out infinite alternate;
   text-align: center;
-  margin-bottom: 20px; /* Added margin */
+
+  /* 1. Create a "trippy" gradient background */
+  background: linear-gradient(120deg, 
+    #00c6ff, /* Cyan */
+    #ff00f3, /* Magenta */
+    #ffb800, /* Gold */
+    #00c6ff  /* Back to Cyan */
+  );
+  
+  /* 2. Set the background to be huge */
+  background-size: 300% 300%;
+
+  /* 3. Clip the background to the SHAPE of the text */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* 4. Make the text color transparent to show the gradient */
+  color: transparent;
+
+  /* 5. Animate the background-position */
+  animation: gradient-shift 6s ease-in-out infinite alternate;
 }
-@keyframes glow {
+
+/* This @keyframes rule moves the gradient */
+@keyframes gradient-shift {
   from {
-    text-shadow: 0 0 10px #fff, 
-                 0 0 20px #fff, 
-                 0 0 30px #00c6ff, 
-                 0 0 40px #00c6ff, 
-                 0 0 50px #00c6ff, 
-                 0 0 60px #00c6ff, 
-                 0 0 70px #00c6ff;
+    background-position: 0% 0%;
   }
   to {
-    text-shadow: 0 0 20px #fff, 
-                 0 0 30px #007bff, 
-                 0 0 40px #007bff, 
-                 0 0 50px #007bff, 
-                 0 0 60px #007bff, 
-                 0 0 70px #007bff, 
-                 0 0 80px #007bff;
+    background-position: 100% 100%;
   }
 }
+
+/* Delete the old @keyframes glow rule */
 
 /* ---------------------------------
    MEDIA QUERIES FOR MOBILE
@@ -440,7 +462,7 @@ footer {
     width: 95%;
     padding: 20px;
   }
-  .animated-glow {
+  .animated-gradient {
     font-size: 2rem;
   }
   .contact-section,
@@ -501,4 +523,115 @@ footer {
   .portfolio-grid {
     column-count: 1; /* 1 column for phones */
   }
+}
+/* ---------------------------------
+   NEW FADE-IN ANIMATIONS
+---------------------------------- */
+
+/* 1. This is the "storyboard" for the animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px); /* Start 30px lower */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End at original position */
+  }
+}
+
+/* 2. This applies the animation to the new sub-headline */
+.fade-in-up {
+  font-size: 1.25rem;
+  color: #ccc;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  
+  /* Animation: 'fadeInUp' name, 1s duration, 'ease-out' timing,
+     '0.3s' delay, and 'forwards' to stay at the end state */
+  animation: fadeInUp 1s ease-out 0.3s forwards;
+  
+  /* Start hidden */
+  opacity: 0;
+}
+
+/* 3. This applies a longer delay to the button */
+.fade-in-up-delay {
+  animation: fadeInUp 1s ease-out 0.6s forwards;
+  opacity: 0; /* Start hidden */
+}
+/* ---------------------------------
+   LAVA LAMP EFFECT (OPTION 2)
+---------------------------------- */
+
+.lava-lamp-container {
+  /* This is the magic: */
+  /* 1. Blur the blobs */
+  filter: blur(25px); 
+  /* 2. Sharpen the edges where they meet */
+  /* This creates the "merging" effect */
+  contrast: 40; 
+  
+  /* Container setup */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.lava-blob {
+  position: absolute;
+  border-radius: 50%;
+  /* Using the same gradient as the text */
+  background: linear-gradient(120deg, 
+    #00c6ff, 
+    #ff00f3
+  );
+  opacity: 0.7;
+  
+  /* This calls the animation */
+  animation: move-blob 15s infinite alternate;
+}
+
+/* Create 4 blobs of different sizes/speeds */
+.lava-blob:nth-child(1) {
+  width: 250px; height: 250px;
+  top: 10%; left: 10%;
+  animation-duration: 15s;
+}
+.lava-blob:nth-child(2) {
+  width: 200px; height: 200px;
+  top: 50%; left: 60%;
+  animation-duration: 12s;
+  animation-direction: alternate-reverse;
+}
+.lava-blob:nth-child(3) {
+  width: 150px; height: 150px;
+  top: 70%; left: 10%;
+  animation-duration: 18s;
+}
+.lava-blob:nth-child(4) {
+  width: 180px; height: 180px;
+  top: 20%; left: 80%;
+  animation-duration: 10s;
+  animation-direction: alternate-reverse;
+}
+
+/* Defines the movement for the blobs */
+@keyframes move-blob {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(50%, 50%) rotate(360deg);
+  }
+}
+
+/* This container holds the text */
+.hero-content {
+  position: relative;
+  z-index: 10; /* Sits ON TOP of the lava lamp */
+  text-align: center;
 }

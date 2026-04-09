@@ -113,7 +113,7 @@ nav a {
 .home-section,
 .about-section,
 .writings-page,
-.portfolio-page {
+.Archive-page {
   padding-top: 150px; /* More space for the fixed header */
   padding-bottom: 40px;
   
@@ -328,15 +328,15 @@ nav a {
 .section-divider { border: 0; height: 1px; background: #555; margin: 40px 0; }
 
 /* ---------------------------------
-   PORTFOLIO PAGE
+   Archive PAGE
 ---------------------------------- */
-.portfolio-page {
+.Archive-page {
   max-width: 1200px;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
 }
-.portfolio-intro {
+.Archive-intro {
   text-align: center;
   margin-bottom: 40px;
   padding: 30px;
@@ -349,12 +349,12 @@ nav a {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
-.portfolio-grid {
+.Archive-grid {
   /* We are replacing the 'display: grid' properties */
   column-count: 3; /* Default for desktop (e.g., 3 columns) */
   column-gap: 20px;
 }
-.portfolio-item {
+.Archive-item {
   position: relative;
   overflow: hidden;
   border-radius: 8px;
@@ -366,7 +366,7 @@ nav a {
   margin-bottom: 20px;
   break-inside: avoid; /* This prevents an item from splitting across columns */
 }
-.portfolio-item img {
+.Archive-item img {
   display: block;
   width: 100%;
   height: auto; /* REVERTED: Allows image's natural height */
@@ -374,11 +374,11 @@ nav a {
   /* REMOVED: object-fit: cover; */
   transition: transform 0.3s ease;
 }
-.portfolio-caption { position: absolute; bottom: 0; left: 0; width: 100%; background: rgba(0, 0, 0, 0.85); color: #fff; padding: 15px; box-sizing: border-box; transform: translateY(100%); transition: transform 0.3s ease-in-out; }
-.portfolio-item:hover .portfolio-caption { transform: translateY(0); }
-.portfolio-item:hover img { transform: scale(1.05); }
-.portfolio-caption h3 { margin: 0 0 5px 0; color: #00c6ff; }
-.portfolio-caption p { margin: 0; font-size: 0.9rem; }
+.Archive-caption { position: absolute; bottom: 0; left: 0; width: 100%; background: rgba(0, 0, 0, 0.85); color: #fff; padding: 15px; box-sizing: border-box; transform: translateY(100%); transition: transform 0.3s ease-in-out; }
+.Archive-item:hover .Archive-caption { transform: translateY(0); }
+.Archive-item:hover img { transform: scale(1.05); }
+.Archive-caption h3 { margin: 0 0 5px 0; color: #00c6ff; }
+.Archive-caption p { margin: 0; font-size: 0.9rem; }
 
 /* ---------------------------------
    NAVIGATION ACTIVE STATE
@@ -467,7 +467,7 @@ footer {
   }
   .contact-section,
   .writings-page,
-  .portfolio-intro,
+  .Archive-intro,
   .about-section {
     width: auto;
     margin-left: 10px;
@@ -514,13 +514,13 @@ footer {
    NEW: MASONRY MEDIA QUERIES
 ---------------------------------- */
 @media (max-width: 992px) {
-  .portfolio-grid {
+  .Archive-grid {
     column-count: 2; /* 2 columns for tablets */
   }
 }
 
 @media (max-width: 576px) {
-  .portfolio-grid {
+  .Archive-grid {
     column-count: 1; /* 1 column for phones */
   }
 }

@@ -510,20 +510,7 @@ footer {
   cursor: pointer;
   border: 2px solid #00c6ff;
 }
-/* ---------------------------------
-   NEW: MASONRY MEDIA QUERIES
----------------------------------- */
-@media (max-width: 992px) {
-  .Archive-grid {
-    column-count: 2; /* 2 columns for tablets */
-  }
-}
 
-@media (max-width: 576px) {
-  .Archive-grid {
-    column-count: 1; /* 1 column for phones */
-  }
-}
 /* ---------------------------------
    NEW FADE-IN ANIMATIONS
 ---------------------------------- */

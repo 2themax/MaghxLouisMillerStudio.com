@@ -12,6 +12,13 @@
     transform: translateY(0);
   }
 }
+/* ---------------------------------
+   TALKING HEAD ANIMATION
+---------------------------------- */
+@keyframes floatHead {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-12px) rotate(1deg); }
+}
 
 /* ---------------------------------
    STARFIELD BACKGROUND
@@ -330,6 +337,33 @@ nav a {
  /* ---------------------------------
    THE CLEAN ARCHIVE GRID 
 ---------------------------------- */
+/* ---------------------------------
+   STICKY TALKING HEAD 
+---------------------------------- */
+.talking-head-container {
+  position: sticky;
+  top: 100px; /* How far from the top it floats */
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  height: 0; /* Prevents it from breaking your grid layout */
+  pointer-events: none; /* Lets you click the images behind it */
+}
+
+.talking-head {
+  width: 15vw; 
+  min-width: 120px;
+  max-width: 180px;
+  pointer-events: auto; /* Makes the head itself solid */
+  filter: drop-shadow(0 0 15px rgba(0,0,0,0.8));
+  transition: transform 0.3s;
+}
+
+.is-talking {
+  /* Using the floatHead animation already defined at the top of your file! */
+  animation: floatHead 4s infinite ease-in-out; 
+  filter: drop-shadow(0 0 20px rgba(0, 255, 200, 0.4));
+}
 .Archive-page {
   max-width: 1200px;
   margin: 0 auto;
@@ -607,3 +641,14 @@ footer {
   z-index: 10; /* Sits ON TOP of the lava lamp */
   text-align: center;
 }
+/* ---------------------------------
+   TALKING HEAD 
+---------------------------------- */
+.talking-head-container {
+  display: flex;
+  justify-content: center;
+  min-height: 200px;
+  pointer-events: none;
+  /* No position set here - JavaScript controls it */
+}
+

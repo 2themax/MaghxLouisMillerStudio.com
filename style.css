@@ -155,20 +155,6 @@ nav a {
   border-radius: 8px;
   padding: 20px;
   border: 1px solid #333;
-}.home-right {
-  width: 90%;
-  max-width: 800px;
-  margin: 40px auto 0 auto;
-  
-  /* Make it a "containing" block */
-  position: relative; 
-  overflow: hidden; /* Hide blob overflow */
-
-  /* Old styles */
-  background: rgba(20, 20, 20, 0.4);
-  border-radius: 8px;
-  padding: 20px;
-  border: 1px solid #333;
 }
 
 /* ---------------------------------
@@ -341,27 +327,27 @@ nav a {
    STICKY TALKING HEAD 
 ---------------------------------- */
 .talking-head-container {
-  position: sticky;
-  top: 100px; /* How far from the top it floats */
   z-index: 999;
   display: flex;
   justify-content: center;
-  height: 0; /* Prevents it from breaking your grid layout */
-  pointer-events: none; /* Lets you click the images behind it */
+  align-items: center; /* Centers the head vertically */
+  min-height: 200px; /* Gives it physical space so it doesn't overlap controls */
+  pointer-events: none; 
 }
 
 .talking-head {
-  width: 15vw; 
-  min-width: 120px;
-  max-width: 180px;
+  width: 20vw; 
+  min-width: 160px;
+  max-width: 240px;
   pointer-events: auto; /* Makes the head itself solid */
   filter: drop-shadow(0 0 15px rgba(0,0,0,0.8));
-  transition: transform 0.3s;
+  transition: transform 0.3s, filter 0.3s; /* Added smooth transition for the glow */
+  animation: floatHead 6s infinite ease-in-out; /* Gentle idle bobbing */
 }
 
 .is-talking {
   /* Using the floatHead animation already defined at the top of your file! */
-  animation: floatHead 4s infinite ease-in-out; 
+  animation: floatHead 2.5s infinite ease-in-out; /* Faster bobbing when talking */
   filter: drop-shadow(0 0 20px rgba(0, 255, 200, 0.4));
 }
 .Archive-page {
@@ -651,4 +637,3 @@ footer {
   pointer-events: none;
   /* No position set here - JavaScript controls it */
 }
-

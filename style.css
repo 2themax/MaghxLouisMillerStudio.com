@@ -119,7 +119,6 @@ nav a {
 ---------------------------------- */
 .home-section,
 .about-section,
-.writings-page,
 .Archive-page {
   padding-top: 150px; /* More space for the fixed header */
   padding-bottom: 40px;
@@ -281,45 +280,6 @@ nav a {
   background-position: center;
 }
 
-/* ---------------------------------
-   WRITINGS PAGE
-   Applying the "glass-panel" style
----------------------------------- */
-.writings-page {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 30px;
-  
-  /* Use the new glass style */
-  background: rgba(10, 10, 10, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.writings-intro,
-.creative-piece {
-  text-align: center;
-  border-bottom: 2px solid #444;
-  padding-bottom: 20px;
-  margin-bottom: 30px;
-}
-.journal-excerpt {
-  background: #1a1a1a; /* Darker interior background */
-  border-radius: 5px;
-  padding: 20px;
-  margin-bottom: 30px;
-  border: 1px solid #333;
-}
-.journal-excerpt header { padding-bottom: 10px; border-bottom: 1px solid #333; margin-bottom: 15px; }
-.journal-excerpt h3 { margin: 0; color: #00c6ff; }
-.journal-excerpt time { font-size: 0.9rem; color: #aaa; font-style: italic; }
-.journal-excerpt blockquote { margin: 0; padding-left: 20px; border-left: 4px solid #007bff; font-style: italic; color: #ddd; line-height: 1.7; }
-.journal-excerpt blockquote p { margin-bottom: 15px; }
-.section-divider { border: 0; height: 1px; background: #555; margin: 40px 0; }
-
  /* ---------------------------------
    THE CLEAN ARCHIVE GRID 
 ---------------------------------- */
@@ -471,7 +431,6 @@ footer {
     font-size: 2rem;
   }
   .contact-section,
-  .writings-page,
   .Archive-intro,
   .about-section {
     width: auto;

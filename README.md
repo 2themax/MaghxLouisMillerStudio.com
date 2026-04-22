@@ -1,4 +1,4 @@
-# maxaroonie.com - Personal Website
+# MaghxLouisMillerStudio.com - Personal Website
 
 This repository contains the source code for my personal website, `MaghxLouisMillerStudio.com`, hosted via GitHub Pages.
 

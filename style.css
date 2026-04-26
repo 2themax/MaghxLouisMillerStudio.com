@@ -371,6 +371,7 @@ nav a {
   max-width: 1000px;
   margin: 0 auto;
   padding: 30px;
+  padding-top: 150px;
   background: rgba(10, 10, 10, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
@@ -387,6 +388,17 @@ nav a {
     font-size: 1.1rem;
     max-width: 800px;
     text-align: center;
+}
+
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 0%;
+  margin: 20px auto 0;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 .tapestry-grid {
   display: grid;
@@ -557,6 +569,9 @@ footer {
     margin-left: 10px;
     margin-right: 10px;
     padding: 20px;
+  }
+  .about-section {
+    padding-top: 130px;
   }
 }
 

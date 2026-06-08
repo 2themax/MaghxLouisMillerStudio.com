@@ -152,4 +152,14 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', resize);
         init();
     }
+
+    // ---------------------------------
+    // FLOWER ANIMATION INIT
+    // ---------------------------------
+    const flowerContainer = document.querySelector('.flower-anim-container');
+    if (flowerContainer) {
+        setTimeout(() => {
+            flowerContainer.classList.remove('not-loaded');
+        }, 1000);
+    }
   });
